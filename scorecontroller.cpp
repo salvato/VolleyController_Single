@@ -438,8 +438,8 @@ ScoreController::onNewConnection(QWebSocket *pClient) {
                QString("Client connected: %1")
                .arg(pClient->peerAddress().toString()));
 #endif
-    sendSlideDir();
-    sendSpotDir();
+//>>>>>>>>    sendSlideDir();
+//>>>>>>>>    sendSpotDir();
 }
 
 
@@ -454,7 +454,7 @@ ScoreController::sendSlideDir() {
 int
 ScoreController::sendSpotDir() {
     QString sMessage = QString("<spotdir>%1</spotdir>").arg(sSpotDir);
-    return SendToOne(connectionList.at(0).pClientSocket, sMessage);
+    return SendToAll(sMessage);
 }
 
 
@@ -553,6 +553,7 @@ ScoreController::onButtonStartStopSpotLoopClicked() {
         return;
     }
     if(myStatus == showPanel) {
+        sendSpotDir();
         sMessage = QString("<spotloop>1</spotloop>");
         SendToAll(sMessage);
         pixmap.load(":/buttonIcons/sign_stop.png");
