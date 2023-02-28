@@ -17,7 +17,7 @@ VolleyController::VolleyController()
     , pSettings( new QSettings("Gabriele Salvato", "Volley Controller"))
     , bFontBuilt(false)
 {
-    setWindowIcon(QIcon(":/myLogo.png"));
+    setWindowIcon(QIcon(":/Logo.ico"));
     // QWidget propagates explicit palette roles from parent to child.
     // If you assign a brush or color to a specific role on a palette and
     // assign that palette to a widget, that role will propagate to all

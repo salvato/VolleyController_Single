@@ -688,6 +688,7 @@ ScoreController::onButtonStartStopSlideShowClicked() {
         return;
     }
     if(myStatus == showPanel) {
+        sendSlideDir();
         sMessage = "<slideshow>1</slideshow>";
         SendToAll(sMessage);
         startStopLoopSpotButton->setDisabled(true);
